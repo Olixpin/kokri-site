@@ -1,0 +1,159 @@
+@keyframes dropFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes backToTop {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+}
+
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 720px;
+  margin: auto;
+  padding: 50px 70px 35px;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 0;
+  border-radius: 0;
+  outline: 0;
+  -webkit-animation-name: animateFromTop;
+  animation-name: animateFromTop;
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
+  gap: 1rem;
+  animation: dropFromTop 0.7s ease-in-out;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 700px;
+    padding: 50px 20px 35px;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  .modal-content {
+    max-width: 600px;
+    padding: 50px 20px 35px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .modal-content {
+    max-width: 500px;
+    padding: 50px 20px 35px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .modal-content {
+    width: 100vw;
+    max-width: 100vw;
+    padding: 50px 20px 35px;
+    display: flow-root;
+  }
+
+  .form-input-1 {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.modal-content h3,
+.modal-content .modal-para {
+  text-align: center;
+}
+
+.modal-content .modal-para {
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  font-size: smaller;
+}
+
+.close-modal {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #000;
+  z-index: 60;
+}
+
+.close-modal > img {
+  width: 16px;
+  height: 16px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  justify-content: center;
+}
+
+.form > label {
+  width: 100%;
+}
+
+input {
+  width: 100%;
+  padding: 0.7rem 1rem;
+  border-radius: 0;
+  border: 0.7px solid var(--input-border);
+}
+
+input:focus {
+  outline: none;
+  border: 0.7px solid var(--input-border-focus);
+}
+
+.form-input-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+label > span {
+  color: var(--tertiary);
+}
+
+p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 2;
+}
+
+.label-error {
+  color: var(--tertiary);
+  line-height: 2;
+}
+
+@media screen and (max-width: 500px) {
+  .form-input-1 {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+}
