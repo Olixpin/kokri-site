@@ -7,7 +7,24 @@ const AppProvider = ({ children }) => {
   const openModal = () => setIsModalOpen(true)
   const closeModal = () => setIsModalOpen(false)
 
-  const value = { isModalOpen, openModal, closeModal }
+  const [openMenu, setOpenMenu] = useState(false)
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu)
+  }
+
+  const closeMenu = () => {
+    setOpenMenu(false)
+  }
+
+  const value = {
+    isModalOpen,
+    openModal,
+    closeModal,
+    toggleMenu,
+    openMenu,
+    setOpenMenu,
+    closeMenu,
+  }
 
   return <AppContext.Provider value={value} children={children} />
 }

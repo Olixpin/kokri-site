@@ -1,3 +1,4 @@
 import Hamburger from "./Hamburger"
+import Hamburgerblack from "./HamburgerBlack"
 
-export { Hamburger }
+export { Hamburger, Hamburgerblack }

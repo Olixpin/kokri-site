@@ -4,8 +4,8 @@ import "./NewsLetter.css"
 import IconClose from "../../assets/images/icon-close.svg"
 import { useAppContext } from "../../context/context"
 import { Btn } from "../Button"
-import { ToastContainer, toast } from "react-toastify"
-import "react-toastify/dist/ReactToastify.css"
+// import { ToastContainer, toast } from "react-toastify"
+// import "react-toastify/dist/ReactToastify.css"
 
 const NewsLetter = () => {
   const { closeModal } = useAppContext()
@@ -60,15 +60,15 @@ const NewsLetter = () => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && validated) {
-      toast.success("Thank you for subscribing to our newsletter", {
-        position: "top-center",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-      })
+      // toast.success("Thank you for subscribing to our newsletter", {
+      //   position: "top-center",
+      //   autoClose: 5000,
+      //   hideProgressBar: false,
+      //   closeOnClick: true,
+      //   pauseOnHover: true,
+      //   draggable: true,
+      //   progress: undefined,
+      // })
 
       setNewsLetterFormDatas({
         firstName: "",
@@ -86,7 +86,7 @@ const NewsLetter = () => {
 
   return (
     <div>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <Modal>
         <div className="modal-content">
           <button

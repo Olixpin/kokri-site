@@ -10,8 +10,16 @@
   padding: 0 8rem;
 }
 
+.error-content > .para {
+  margin-bottom: 0.8rem;
+}
+
 @media screen and (max-width: 990px) {
   .error-content {
     padding: 0 0rem;
   }
+}
+
+.btn-order {
+  flex-direction: row-reverse;
 }

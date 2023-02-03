@@ -3,12 +3,9 @@ import "./Hamburger.css"
 import { Modal } from "../Modal"
 import { Menus } from "../Menus"
 import { useAppContext } from "../../context/context"
-import { useLocation } from "react-router-dom"
 
-const Hamburger = () => {
+const HamburgerBlack = () => {
   const { openMenu, toggleMenu } = useAppContext()
-
-  const { pathname } = useLocation()
 
   return (
     <div>
@@ -19,9 +16,7 @@ const Hamburger = () => {
           }}
         >
           <span
-            className={`bar ${
-              openMenu || pathname === "/" ? "white" : "bar-black"
-            }`}
+            className="bar"
             style={{
               transform: openMenu
                 ? "translateX(0px) translateY(5px) rotate(45deg)"
@@ -29,9 +24,7 @@ const Hamburger = () => {
             }}
           ></span>
           <span
-            className={`bar ${
-              openMenu || pathname === "/" ? "white" : "bar-black"
-            }`}
+            className="bar"
             style={{
               transform: openMenu
                 ? "translateX(0px) translateY(-3px)  rotate(-45deg)"
@@ -57,4 +50,4 @@ const Hamburger = () => {
   )
 }
 
-export default Hamburger
+export default HamburgerBlack

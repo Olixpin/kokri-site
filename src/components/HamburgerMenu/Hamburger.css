@@ -24,6 +24,10 @@
   transition: all 0.3s ease-in-out;
 }
 
+.hamburger-menu button .bar-black {
+  background-color: var(--black);
+}
+
 .background {
   background-color: rgba(0, 0, 0, 0.644);
 }

@@ -15,3 +15,10 @@
 .btn-icon {
   color: #cecece;
 }
+
+.btn-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
