@@ -6,7 +6,7 @@ import { useAppContext } from "../../context/context"
 import { useLocation } from "react-router-dom"
 
 const Hamburger = () => {
-  const { openMenu, toggleMenu } = useAppContext()
+  const { openMenu, toggleMenu, changeHeader } = useAppContext()
 
   const { pathname } = useLocation()
 
@@ -26,6 +26,7 @@ const Hamburger = () => {
               transform: openMenu
                 ? "translateX(0px) translateY(5px) rotate(45deg)"
                 : "",
+              backgroundColor: changeHeader ? "var(--black)" : "",
             }}
           ></span>
           <span
@@ -36,6 +37,7 @@ const Hamburger = () => {
               transform: openMenu
                 ? "translateX(0px) translateY(-3px)  rotate(-45deg)"
                 : "",
+              backgroundColor: changeHeader ? "var(--black)" : "",
             }}
           ></span>
         </button>

@@ -31,6 +31,7 @@ const router = createBrowserRouter([
       { path: "careers", element: <Careers /> },
       { path: "contact", element: <Contacts /> },
       { path: "live", element: <Live /> },
+      { path: "work/:workId", element: <h1>WorkId</h1> },
       { path: "work", element: <Work /> },
       { path: "location", element: <Location /> },
       { path: "privacy-policy", element: <Outlet /> },

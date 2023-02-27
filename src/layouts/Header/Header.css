@@ -6,6 +6,35 @@
   width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+  background-color: transparent;
+  /* animation: fadeOut 0.5s ease-in-out; */
+}
+
+.header-active {
+  background-color: var(--white);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  top: 0;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @media screen and (max-width: 768px) {

@@ -101,3 +101,8 @@
   color: var(--text-2);
   text-decoration: none;
 }
+
+.barblack {
+  background-color: var(--black) !important;
+  height: 40px;
+}

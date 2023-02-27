@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react"
+import React, { useState, useContext, createContext, useEffect } from "react"
 const AppContext = createContext()
 
 const AppProvider = ({ children }) => {
@@ -16,6 +16,16 @@ const AppProvider = ({ children }) => {
     setOpenMenu(false)
   }
 
+  const [changeHeader, setChangeHeader] = useState(false)
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", () =>
+        setChangeHeader(window.pageYOffset > 200)
+      )
+    }
+  }, [])
+
   const value = {
     isModalOpen,
     openModal,
@@ -24,6 +34,8 @@ const AppProvider = ({ children }) => {
     openMenu,
     setOpenMenu,
     closeMenu,
+    changeHeader,
+    setChangeHeader,
   }
 
   return <AppContext.Provider value={value} children={children} />
