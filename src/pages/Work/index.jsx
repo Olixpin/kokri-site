@@ -1,2 +1,3 @@
+import Works from "./Works"
 import Work from "./Work"
-export { Work }
+export { Works, Work }

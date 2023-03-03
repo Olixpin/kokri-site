@@ -1,12 +1,13 @@
 import React from "react"
 import { Outlet } from "react-router-dom"
+import MyPage from "../../components/ScrollToTop/ScrollToTop"
 import { Main } from "../../layouts/Main"
 
 const Home = () => {
   return (
-    <div>
+    <MyPage>
       <Main />
-    </div>
+    </MyPage>
   )
 }
 

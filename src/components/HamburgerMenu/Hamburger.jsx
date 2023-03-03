@@ -3,12 +3,13 @@ import "./Hamburger.css"
 import { Modal } from "../Modal"
 import { Menus } from "../Menus"
 import { useAppContext } from "../../context/context"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 
 const Hamburger = () => {
   const { openMenu, toggleMenu, changeHeader } = useAppContext()
 
   const { pathname } = useLocation()
+  const { workId } = useParams()
 
   return (
     <div>
@@ -20,7 +21,9 @@ const Hamburger = () => {
         >
           <span
             className={`bar ${
-              openMenu || pathname === "/" ? "white" : "bar-black"
+              openMenu || pathname === "/" || pathname === `/work/${workId}`
+                ? "white"
+                : "bar-black"
             }`}
             style={{
               transform: openMenu
@@ -31,7 +34,9 @@ const Hamburger = () => {
           ></span>
           <span
             className={`bar ${
-              openMenu || pathname === "/" ? "white" : "bar-black"
+              openMenu || pathname === "/" || pathname === `/work/${workId}`
+                ? "white"
+                : "bar-black"
             }`}
             style={{
               transform: openMenu

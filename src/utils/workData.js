@@ -71,7 +71,7 @@ const workData = {
   data: [
     {
       id: 1,
-      name: "McDonalds",
+      name: "McDonald's",
       slug: "mcdonalds",
       title:
         "With over 60 million interactions with people every day, what makes each moment special?",
@@ -93,18 +93,18 @@ const workData = {
 
       client: "McDonald's Corporation",
       modeOfLife: "Taste",
-      sector: ["Food & Beverage", "Hospitalit"],
+      sector: ["Food & Beverage", "Hospitality"],
       expertise: ["Packaging Design", "Brand Strategy"],
       year: "2019",
       images: [
         McDonalds7,
+        McMuffin,
+        FileToFish,
         McDonalds,
         McDonalds6,
         McDonalds8,
-        McDonalds9,
-        McMuffin,
-        FileToFish,
         Clamshell,
+        McDonalds9,
         Driscolls,
         SoGood,
       ],
@@ -170,6 +170,7 @@ const workData = {
       expertise: ["Packaging", "Visual Identity"],
       year: "2020",
       images: [
+        JacobsHero,
         JacobScaro,
         JacobScaro2,
         JacobScaro3,
@@ -179,7 +180,6 @@ const workData = {
         JacobsFullwidth,
         JacobsFullwidth3,
         JacobsFullwidth4,
-        JacobsHero,
       ],
     },
     {
@@ -268,140 +268,3 @@ const workData = {
 }
 
 export { workData }
-//  ;<div className="gallery">
-//    {[1, 2, 3, 4, 5, 6].map((item) => (
-//      <div className="gallery-item" key={item}>
-//        <div className="gallery-row">
-//          {item % 2 === 0 ? (
-//            <>
-//              <div className="gallery-col-1">
-//                <div className="col-item-overlay">
-//                  <div className="col-item-background">
-//                    <Link
-//                      to="/work/mcdonalds"
-//                      className=""
-//                      title="McDonald's"
-//                      style={{
-//                        backgroundImage: `url(https://cdn.pearlfisher.com/2021/02/McDonalds-7.jpg)`,
-//                      }}
-//                    ></Link>
-//                  </div>
-//                  <div className="col-item-text" id="col-item-textid">
-//                    <h4></h4>
-//                    <h5>McDonald's</h5>
-//                  </div>
-//                  <div className="col-item-link">
-//                    <a href="#"></a>
-//                  </div>
-//                </div>
-//              </div>
-//              <div className="gallery-col-2">
-//                <div className="col-item-overlay">
-//                  <div className="col-item-background">
-//                    <Link
-//                      to="/work/mcdonalds"
-//                      title="McDonald's"
-//                      style={{
-//                        backgroundImage: `url(https://cdn.pearlfisher.com/2021/11/D85_0921.jpg)`,
-//                      }}
-//                    ></Link>
-//                  </div>
-//                  <div className="col-item-text" id="col-item-textid">
-//                    <h4></h4>
-//                    <h5>McDonald's</h5>
-//                  </div>
-//                  <div className="col-item-link">
-//                    <Link to="/work/mcdonalds" title="McDonald's"></Link>
-//                  </div>
-//                </div>
-//              </div>
-//            </>
-//          ) : (
-//            <>
-//              <div className="gallery-col-3">
-//                <div className="col-item-overlay">
-//                  <div className="col-item-background">
-//                    <Link
-//                      to="/work/mcdonalds"
-//                      className=""
-//                      title="McDonald's"
-//                      style={{
-//                        backgroundImage: `url(https://cdn.pearlfisher.com/2021/11/D85_0921.jpg)`,
-//                      }}
-//                    ></Link>
-//                  </div>
-//                  <div className="col-item-text" id="col-item-textid">
-//                    <h4></h4>
-//                    <h5>McDonald's</h5>
-//                  </div>
-//                  <div className="col-item-link">
-//                    <a href="#" title="McDonald's"></a>
-//                  </div>
-//                </div>
-//              </div>
-//              <div className="gallery-col-4 ">
-//                <div className="col-item-overlay">
-//                  <div className="col-item-background">
-//                    <Link
-//                      to="/work/mcdonalds"
-//                      className=""
-//                      title="McDonald's"
-//                      style={{
-//                        backgroundImage: `url(https://cdn.pearlfisher.com/2021/12/SEEDLIP_1.jpg)`,
-//                      }}
-//                    ></Link>
-//                  </div>
-//                  <div className="col-item-text" id="col-item-textid">
-//                    <h4></h4>
-//                    <h5>McDonald's</h5>
-//                  </div>
-//                  <div className="col-item-link">
-//                    <a href="#"></a>
-//                  </div>
-//                </div>
-//              </div>
-//            </>
-//          )}
-//        </div>
-//      </div>
-//    ))}
-//  </div>
-
-// ;<section className="gallery-wrapper">
-//   <div className="gallery-container">
-//     <div className="back-to-top">&nbsp;</div>
-//     <div className="gallery">
-//       {data &&
-//         leftItems.map((item) => (
-//           <div className="gallery-item" key={item.id}>
-//             <div className="gallery-row">
-//               <div className="gallery-col-1">
-//                 <GalleryChild item={item} />
-//               </div>
-//               <div className="gallery-col-2">
-//                 <GalleryChild item={item} />
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//       {data &&
-//         rightItems.map((item) => (
-//           <div className="gallery-item" key={item?.id}>
-//             <div className="gallery-row">
-//               <div className="gallery-col-3">
-//                 <GalleryChild item={item} />
-//               </div>
-//               <div className="gallery-col-4 ">
-//                 <GalleryChild item={item} />
-//               </div>
-//             </div>
-//           </div>
-//         ))}
-//     </div>
-//     <div className="gallery-btn-container">
-//       <Link to="/work">
-//         <Btn text="More Work" Icon={East} />
-//       </Link>
-//     </div>
-//   </div>
-// </section>

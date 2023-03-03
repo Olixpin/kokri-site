@@ -17,13 +17,7 @@ const generateRandomData = (data) => {
     randomData.push(data[randomIndex])
   }
 
-  const rows = []
-  for (let i = 0; i < randomData.length; i += 2) {
-    const row = [randomData[i], randomData[i + 1]]
-    rows.push(row)
-  }
-
-  return rows.slice(0, 2)
+  return randomData
 }
 
 let idCounter = 0

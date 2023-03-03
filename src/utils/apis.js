@@ -9,12 +9,4 @@ const getHomeData = async () => {
   })
 }
 
-const getHomeData2 = async () => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve(generateRandomData2(workData.data))
-    }, timeout)
-  })
-}
-
 export { getHomeData }

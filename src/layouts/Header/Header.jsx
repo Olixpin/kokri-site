@@ -4,12 +4,14 @@ import Logo from "../../assets/images/kokri-white.svg"
 import LogoBlack from "../../assets/images/kokri-black.svg"
 import "./Header.css"
 import { Hamburger } from "../../components/HamburgerMenu"
-import { useLocation } from "react-router-dom"
+import { useLocation, useParams } from "react-router-dom"
 import { useAppContext } from "../../context/context"
 
 const Header = () => {
   const { pathname } = useLocation()
   const { openMenu, changeHeader } = useAppContext()
+
+  const { workId } = useParams()
 
   return (
     <header
@@ -18,7 +20,7 @@ const Header = () => {
       <div className="header-content">
         <div className="header-wrap">
           <div className="logo">
-            {openMenu || pathname === "/" ? (
+            {openMenu || pathname === "/" || pathname === `/work/${workId}` ? (
               changeHeader ? (
                 <Link to="/">
                   <img src={LogoBlack} alt="kokri" />

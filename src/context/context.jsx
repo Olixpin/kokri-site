@@ -1,5 +1,6 @@
 import React, { useState, useContext, createContext, useEffect } from "react"
 const AppContext = createContext()
+import { getHomeData } from "../utils/apis"
 
 const AppProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -26,6 +27,15 @@ const AppProvider = ({ children }) => {
     }
   }, [])
 
+  const [data, setData] = useState([])
+  const [loading, setLoading] = useState(true)
+  useEffect(() => {
+    getHomeData().then((res) => {
+      setData(res)
+      setLoading(false)
+    })
+  }, [])
+
   const value = {
     isModalOpen,
     openModal,
@@ -36,6 +46,8 @@ const AppProvider = ({ children }) => {
     closeMenu,
     changeHeader,
     setChangeHeader,
+    data,
+    loading,
   }
 
   return <AppContext.Provider value={value} children={children} />
