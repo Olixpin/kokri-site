@@ -15,6 +15,9 @@ const Work = () => {
   const { workId } = useParams()
   const { data, loading } = useAppContext()
   const match = useMatch("/work/:workId")
+  const { openModal, isModalOpen } = useAppContext()
+
+  console.log(data)
 
   const work = data?.find((item) => item?.slug === match?.params?.workId)
 
@@ -67,7 +70,14 @@ const Work = () => {
                   >
                     Read full life story &rarr;
                   </a>
-                  <a href="#" id="full-story">
+                  <a
+                    href="#"
+                    id="full-story"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      openModal()
+                    }}
+                  >
                     Get in touch &rarr;
                   </a>
                 </div>
@@ -206,6 +216,54 @@ const Work = () => {
                 }}
               ></Link>
             ))}
+          </div>
+        </div>
+        <div className="find-out-more">
+          <h1>
+            To find out more about our work for {work?.name} or any of our other
+            brands, get in touch.
+          </h1>
+          <div className="">
+            <Btn
+              text="Get in touch"
+              Icon={East}
+              handleClick={(e) => {
+                e.preventDefault()
+                openModal()
+              }}
+            />
+          </div>
+        </div>
+
+        <div className="explore-more">
+          <h3>Explore more of our work</h3>
+          <div
+            className="explore-more-content"
+            onClick={() => window.scrollTo(100, 100)}
+          >
+            {data.reduce((acc, item) => {
+              if (item.slug !== work?.slug) {
+                acc.push(
+                  <Link
+                    to={`/work/${item.slug}`}
+                    className="explore-more-item"
+                    key={generateUniqueId()}
+                  >
+                    <div
+                      className="explore-more-item-image"
+                      style={{
+                        backgroundImage: `url(${item?.images?.[0]})`,
+                      }}
+                    ></div>
+                    <div className="explore-more-item-content">
+                      <h3>{item?.name}</h3>
+                      <p>{item?.title}</p>
+                    </div>
+                  </Link>
+                )
+              }
+              return acc
+            }, [])}
           </div>
         </div>
       </section>
