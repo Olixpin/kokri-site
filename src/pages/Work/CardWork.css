@@ -1,0 +1,42 @@
+.card-work {
+  background-color: pink;
+}
+
+article {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.section-work-grid .section-work-grid-box .work-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-work-grid .section-work-grid-box .work-link {
+  position: relative;
+}
+
+.section-work-grid .section-work-grid-box .work-image a {
+  position: relative;
+  display: block;
+  padding-bottom: 59%;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  transition: all 0.7s;
+  transform: scale(1) translateZ(0);
+}
+.section-work-grid .section-work-grid-box .work-image a:hover {
+  transform: scale(1.1) translateZ(0);
+}
+.section-work-grid .section-work-grid-box {
+  margin-bottom: 55px;
+}
+
+.work-link {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}

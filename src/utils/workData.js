@@ -50,7 +50,7 @@ import Seedlips9 from "../assets/images/work-images/seeds/Seedlip-9.jpg"
 import Seedlips10 from "../assets/images/work-images/seeds/Seedlip-10.jpg"
 import Seedlips11 from "../assets/images/work-images/seeds/Seedlip-11.jpg"
 import Seedlips12 from "../assets/images/work-images/seeds/Seedlip-12.jpg"
-import SeedlipsHeader from "../assets/images/work-images/seeds/Seedlip-header.jpg"
+import SeedlipsHeader from "../assets/images/work-images/seeds/Seedlip-0.jpg"
 
 // E-cloth
 import Ecloth1 from "../assets/images/work-images/e-cloth/01.jpg"

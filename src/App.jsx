@@ -32,7 +32,9 @@ const router = createBrowserRouter([
       { path: "contact", element: <Contacts /> },
       { path: "live", element: <Live /> },
       { path: "work/:workId", element: <Work /> },
+      { path: "work/:workId/:workId", element: <Work /> },
       { path: "work", element: <Works /> },
+      { path: "upload", element: <Upload /> },
       { path: "location", element: <Location /> },
       { path: "privacy-policy", element: <Outlet /> },
       { path: "sitemap", element: <Outlet /> },
@@ -69,4 +71,65 @@ export function RootErrorBoundary() {
 
 export function Fallback() {
   return <p>Performing initial data "load"</p>
+}
+
+function Upload() {
+  const cloudName = import.meta.env.VITE_CLOUD_NAME
+  const presetName = import.meta.env.VITE_PRESET_NAME
+
+  const [cloudImage, setCloudImage] = React.useState("")
+
+  const myWidget = window.cloudinary.createUploadWidget(
+    {
+      cloudName,
+      uploadPreset: presetName,
+    },
+    (error, result) => {
+      if (!error && result && result.event === "success") {
+        console.log("Done! Here is the image info: ", result.info)
+        setCloudImage(result.info.secure_url)
+      }
+    }
+  )
+
+  React.useEffect(() => {
+    const uploadBtn = document.getElementById("upload-widget")
+    uploadBtn.addEventListener("click", () => {
+      myWidget.open()
+    })
+
+    return () => {
+      uploadBtn.removeEventListener("click", () => {
+        myWidget.open()
+      })
+    }
+  }, [])
+
+  return (
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
+      <h1>Upload Data</h1>
+      <div
+        className="upload-container"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <button id="upload-widget" className="cloudnery-btn">
+          Upload files
+        </button>
+
+        <img src={cloudImage} alt="" id="upload-image" />
+      </div>
+    </div>
+  )
 }
