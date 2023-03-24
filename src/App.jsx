@@ -10,6 +10,7 @@ import { Contacts } from "./pages/Contacts"
 import { Live } from "./pages/Live"
 import { Works, Work } from "./pages/Work"
 import { Location } from "./pages/Routes"
+import { Upload } from "./components/Upload"
 
 const About = () => {
   return (
@@ -73,63 +74,79 @@ export function Fallback() {
   return <p>Performing initial data "load"</p>
 }
 
-function Upload() {
-  const cloudName = import.meta.env.VITE_CLOUD_NAME
-  const presetName = import.meta.env.VITE_PRESET_NAME
+// function Upload() {
+//   const cloudName = import.meta.env.VITE_CLOUD_NAME
+//   const presetName = import.meta.env.VITE_PRESET_NAME
 
-  const [cloudImage, setCloudImage] = React.useState("")
+//   const [cloudImage, setCloudImage] = React.useState("")
 
-  const myWidget = window.cloudinary.createUploadWidget(
-    {
-      cloudName,
-      uploadPreset: presetName,
-    },
-    (error, result) => {
-      if (!error && result && result.event === "success") {
-        console.log("Done! Here is the image info: ", result.info)
-        setCloudImage(result.info.secure_url)
-      }
-    }
-  )
+//   const [imageUrls, setImageUrls] = React.useState(() => {
+//     const urls = localStorage.getItem("imageUrls")
+//     return urls ? JSON.parse(urls) : []
+//   })
 
-  React.useEffect(() => {
-    const uploadBtn = document.getElementById("upload-widget")
-    uploadBtn.addEventListener("click", () => {
-      myWidget.open()
-    })
+//   const myWidget = window.cloudinary.createUploadWidget(
+//     {
+//       cloudName,
+//       uploadPreset: presetName,
+//     },
+//     (error, result) => {
+//       if (!error && result && result.event === "success") {
+//         console.log("Done! Here is the image info: ", result.info)
+//         setCloudImage(result.info.secure_url)
+//         setImageUrls((prev) => [...prev, result.info.secure_url])
+//       }
+//     }
+//   )
 
-    return () => {
-      uploadBtn.removeEventListener("click", () => {
-        myWidget.open()
-      })
-    }
-  }, [])
+//   React.useEffect(() => {
+//     const uploadBtn = document.getElementById("upload-widget")
+//     uploadBtn.addEventListener("click", () => {
+//       myWidget.open()
+//     })
 
-  return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <h1>Upload Data</h1>
-      <div
-        className="upload-container"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <button id="upload-widget" className="cloudnery-btn">
-          Upload files
-        </button>
+//     localStorage.setItem("imageUrls", JSON.stringify(imageUrls))
 
-        <img src={cloudImage} alt="" id="upload-image" />
-      </div>
-    </div>
-  )
-}
+//     return () => {
+//       uploadBtn.removeEventListener("click", () => {
+//         myWidget.open()
+//       })
+//     }
+//   }, [])
+
+//   console.log(imageUrls)
+
+//   return (
+//     <div
+//       style={{
+//         height: "100vh",
+//         display: "flex",
+//         justifyContent: "center",
+//         alignItems: "center",
+//         flexDirection: "column",
+//       }}
+//     >
+//       <h1>Upload Data</h1>
+//       <div
+//         className="upload-container"
+//         style={{
+//           display: "flex",
+//           justifyContent: "center",
+//           alignItems: "center",
+//         }}
+//       >
+//         <button
+//           id="upload-widget"
+//           className="cloudnery-btn"
+//           onClick={() => {
+//             console.log(imageUrls)
+//           }}
+//         >
+//           Upload files
+//         </button>
+
+//         <img src={cloudImage} alt="" id="upload-image" />
+//       </div>
+//     </div>
+//   )
+// }

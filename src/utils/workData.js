@@ -76,8 +76,8 @@ const workData = {
       title:
         "With over 60 million interactions with people every day, what makes each moment special?",
       text: "The McDonald’s menu is full of famous favorites. We pulled out the most delicious and iconic aspects of each menu item to redesign their entire packaging system from top to bottom – Big Mac® to McFlurry® – making feel-good moments easy for everyone.",
-      thumbnail: Thumbnail,
-      header: McDonaldsHeader,
+      // thumbnail: Thumbnail,
+      // header: McDonaldsHeader,
       about: {
         title: "A new look for a lasting legacy.",
         texts: [

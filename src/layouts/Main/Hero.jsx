@@ -10,7 +10,6 @@ const Hero = () => {
   React.useEffect(() => {
     const video = document.createElement("video")
     video.preload = "auto"
-    console.log(video.duration)
 
     video.onloadeddata = () => {
       if (video.duration === 0) {
