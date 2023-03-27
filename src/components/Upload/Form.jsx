@@ -11,12 +11,21 @@ export const Form = ({
   setImageUrls,
   setHeaderImageUrl,
 }) => {
+  const mongoAPI = import.meta.env.VITE_MONGO_API_KEY
+  const endpoint = import.meta.env.VITE_MONGO_DB_ENDPOINT
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+
   const [formData, setFormData] = useState({
     name: "",
     slug: "",
     title: "",
     text: "",
     headerImage: "",
+    about: {
+      title: "",
+      text: [],
+    },
     aboutTitle: "",
     aboutText: "",
     client: "",
@@ -26,9 +35,6 @@ export const Form = ({
     year: "",
     images: "",
     videos: "",
-    tags: "",
-    categories: "",
-    awards: "",
   })
 
   const [errors, setErrors] = useState({})
@@ -60,6 +66,10 @@ export const Form = ({
         "Title is required and must be at least 4 characters and only letters"
     }
 
+    if (!values.text) {
+      errors.text = "Text is Required"
+    }
+
     if (!values.aboutTitle) {
       errors.aboutTitle = "About Title Required"
     }
@@ -86,18 +96,6 @@ export const Form = ({
 
     if (!values.year) {
       errors.year = "Year is Required"
-    }
-
-    if (!values.tags) {
-      errors.tags = "Tags is Required"
-    }
-
-    if (!values.categories) {
-      errors.categories = "Categories is Required"
-    }
-
-    if (!values.awards) {
-      errors.awards = "Awards is Required"
     }
 
     if (!values.headerImage) {
@@ -131,6 +129,19 @@ export const Form = ({
     formData.headerImage = headerImage
     formData.videos = videoUrls
     formData.slug = formData.name.toLowerCase()
+    formData.about = {
+      about: formData.aboutTitle,
+      text: formData.aboutText.includes(",")
+        ? formData.aboutText.split(",")
+        : [formData.aboutText],
+    }
+    formData.sector = formData.sector.includes(",")
+      ? formData.sector.split(",")
+      : [formData.sector]
+
+    formData.expertise = formData.expertise.includes(",")
+      ? formData.expertise.split(",")
+      : [formData.expertise]
 
     const errors = validate(formData)
     if (errors.videos) {
@@ -149,6 +160,28 @@ export const Form = ({
     if (Object.keys(errors).length === 0) {
       console.log("Form Submitted")
       console.log(formData)
+
+      setIsSubmitting(true)
+      fetch(endpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "api-key": mongoAPI,
+        },
+        body: JSON.stringify(formData),
+        // mode: "no-cors",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data)
+          setIsSubmitting(false)
+          setIsSubmitted(true)
+        })
+        .catch((err) => {
+          console.log(err)
+          setIsSubmitting(false)
+          setIsSubmitted(false)
+        })
     }
   }
 
@@ -156,29 +189,36 @@ export const Form = ({
     if (validated) {
       if (Object.keys(errors).length === 0) {
         toast.success("Form Submitted Successfully")
-        setFormData({
-          name: "",
-          slug: "",
-          title: "",
-          text: "",
-          headerImage: "",
-          aboutTitle: "",
-          aboutText: "",
-          client: "",
-          modeOfLife: "",
-          sector: "",
-          expertise: "",
-          year: "",
-          images: "",
-          videos: "",
-          tags: "",
-          categories: "",
-          awards: "",
-        })
+        // setImageUrls("")
+        // setHeaderImageUrl("")
+        // setVideoUrl("")
+
+        // setFormData({
+        //   name: "",
+        //   slug: "",
+        //   title: "",
+        //   text: "",
+        //   headerImage: "",
+        //   about: {
+        //     title: "",
+        //     text: [],
+        //   },
+        //   aboutTitle: "",
+        //   aboutText: "",
+        //   client: "",
+        //   modeOfLife: "",
+        //   sector: "",
+        //   expertise: "",
+        //   year: "",
+        //   images: "",
+        //   videos: "",
+        // })
       } else {
         toast.error(
           errors.name ||
             errors.title ||
+            errors.text ||
+            errors.about ||
             errors.aboutTitle ||
             errors.aboutText ||
             errors.client ||
@@ -186,9 +226,6 @@ export const Form = ({
             errors.sector ||
             errors.expertise ||
             errors.year ||
-            errors.tags ||
-            errors.categories ||
-            errors.awards ||
             errors.headerImage ||
             errors.images ||
             errors.videos
@@ -239,12 +276,32 @@ export const Form = ({
           />
         </div>
         <div className="form-group">
+          <label htmlFor="text">Text</label>
+          <input
+            type="text"
+            name="text"
+            id="text"
+            value={formData.text}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="header-image">Header Image</label>
           <input
             type="text"
             name="headerImage"
             id="header-image"
-            defaultValue={headerImage}
+            value={headerImage}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="about">About</label>
+          <input
+            type="text"
+            name="about"
+            id="about"
+            value={formData.aboutTitle && formData.aboutText}
             onChange={handleChange}
           />
         </div>
@@ -335,36 +392,6 @@ export const Form = ({
             name="videos"
             id="videos"
             value={videoUrls}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="tags">Tags</label>
-          <input
-            type="text"
-            name="tags"
-            id="tags"
-            value={formData.tags}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="categories">Categories</label>
-          <input
-            type="text"
-            name="categories"
-            id="categories"
-            value={formData.categories}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="awards">Awards won</label>
-          <input
-            type="text"
-            name="awards"
-            id="awards"
-            value={formData.awards}
             onChange={handleChange}
           />
         </div>
