@@ -1,0 +1,254 @@
+.about {
+  padding: 0 2rem;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1800px;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    padding: 0 12px;
+  }
+}
+
+.about-main {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section-about-subheader {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-about-subheader > h3 {
+  font-weight: 400;
+  font-size: 27px;
+  line-height: 35px;
+  margin: 0;
+  max-width: 1080px;
+}
+
+.section-about-grid {
+  background-color: #f8f5f3;
+  padding: 62px 70px 0;
+}
+
+.section-about-sub-content {
+  position: relative;
+}
+
+.section-about-sub-content > h5 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0 0 25px;
+  max-width: 500px;
+}
+
+.section-expertise-grid-wrap {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.section-expertise-grid-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 50%;
+  flex-grow: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 0 10px;
+  margin-bottom: 66px;
+}
+
+.section-expertise-grid-box > h4 {
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  margin: 0 0 23px -3px;
+}
+
+.section-expertise-grid-box > h5 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+  max-width: 500px;
+}
+
+.section-expertise-grid-box h5 ~ h5 {
+  margin-top: 25px;
+}
+
+.award-content-wrap {
+  padding-top: 55px;
+}
+
+.section-award-header {
+  position: relative;
+  margin: 0 0 10px;
+}
+
+.section-award-subheader {
+  position: relative;
+  margin: 0 0 25px;
+}
+
+.award-content-wrap p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+  max-width: 640px;
+}
+
+.award-list {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  flex-wrap: wrap;
+}
+
+.award-list-item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 16.66%;
+  flex-grow: 0;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 5px;
+}
+
+.award-logo {
+  position: relative;
+  height: 75px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.award-logo img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 180px;
+}
+
+.award-list-item p {
+  font-family: Helvetica Neue LT Light, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  margin: 0;
+}
+
+.dont-content-wrap {
+  padding-top: 55px;
+}
+
+.section-dont-header {
+  position: relative;
+  margin: 0 0 10px;
+}
+
+.section-award-subheader {
+  position: relative;
+  margin: 0 0 25px;
+}
+
+.container-about .dont-content-wrap p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+}
+
+.section-award-subheader p {
+  margin-bottom: 27px;
+  max-width: 640px;
+}
+
+.dont-content-wrap .section-dont-grid {
+  background-color: transparent;
+  padding: 0;
+}
+
+.section-dont-grid-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.section-dont-grid-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  flex-basis: 33.33%;
+  flex-grow: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 30px 10px 0;
+  margin-bottom: 0;
+}
+
+.section-dont-grid-box h4 {
+  font-family: Helvetica Neue LT Bold, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 40px;
+  margin: 0 0 23px -3px;
+}
+
+.section-dont-grid-box p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  margin: 0;
+  max-width: 500px;
+}
+
+.about > h1 {
+  font-size: 300px;
+}
+
+.section-people-header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 72px;
+  margin-bottom: 0;
+  padding-left: 140px;
+  padding-right: 140px;
+}
+
+.section-people-grid {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 20.5px;
+}
+
+.section-people-grid .section-people-grid-box {
+  background-color: #e9e4de;
+}
+
+.person-normal {
+  grid-row-end: span 10 !important;
+}

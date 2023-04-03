@@ -11,15 +11,7 @@ import { Live } from "./pages/Live"
 import { Works, Work } from "./pages/Work"
 import { Location } from "./pages/Routes"
 import { Upload } from "./components/Upload"
-
-const About = () => {
-  return (
-    <div>
-      <h1>About</h1>
-      <Link to="/">Home</Link>
-    </div>
-  )
-}
+import { About } from "./pages/About"
 
 const router = createBrowserRouter([
   {

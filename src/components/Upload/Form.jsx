@@ -1,6 +1,7 @@
 import React, { useState, useEffect, ref } from "react"
 import { generateUniqueId } from "../../utils/logic"
 import { ToastContainer, toast } from "react-toastify"
+import axios from "axios"
 import "react-toastify/dist/ReactToastify.css"
 
 export const Form = ({
@@ -123,7 +124,7 @@ export const Form = ({
     return errors
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     formData.images = imageUrls
     formData.headerImage = headerImage
@@ -162,18 +163,39 @@ export const Form = ({
       console.log(formData)
 
       setIsSubmitting(true)
-      fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": mongoAPI,
+      const key =
+        "lPPqyBSZyIL6hFTbQDPbr2sCHeVe1wsgpyON2mVaJTIdgwc6B6lFDIpXDPp00uaq"
+      const secret =
+        "https://eu-central-1.aws.realm.mongodb.com/api/client/v2.0/app/data-yejxc/auth/providers/api-key/login"
+
+      // use get to get the token
+      const response = await axios.post(
+        secret,
+        {
+          key,
         },
-        body: JSON.stringify(formData),
-        // mode: "no-cors",
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data)
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+
+      // use the token to make the request
+
+      const token = response ? response.data.access_token : null
+      axios
+        .post(endpoint, formData, {
+          headers: {
+            "Content-Type": "application/json",
+            // "api-key": mongoAPI,
+            // email: "admin@test.com",
+            // password: "admin1234",
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res.data)
           setIsSubmitting(false)
           setIsSubmitted(true)
         })
@@ -182,6 +204,8 @@ export const Form = ({
           setIsSubmitting(false)
           setIsSubmitted(false)
         })
+      setIsSubmitting(false)
+      setIsSubmitted(true)
     }
   }
 
@@ -189,30 +213,30 @@ export const Form = ({
     if (validated) {
       if (Object.keys(errors).length === 0) {
         toast.success("Form Submitted Successfully")
-        // setImageUrls("")
-        // setHeaderImageUrl("")
-        // setVideoUrl("")
+        setImageUrls("")
+        setHeaderImageUrl("")
+        setVideoUrl("")
 
-        // setFormData({
-        //   name: "",
-        //   slug: "",
-        //   title: "",
-        //   text: "",
-        //   headerImage: "",
-        //   about: {
-        //     title: "",
-        //     text: [],
-        //   },
-        //   aboutTitle: "",
-        //   aboutText: "",
-        //   client: "",
-        //   modeOfLife: "",
-        //   sector: "",
-        //   expertise: "",
-        //   year: "",
-        //   images: "",
-        //   videos: "",
-        // })
+        setFormData({
+          name: "",
+          slug: "",
+          title: "",
+          text: "",
+          headerImage: "",
+          about: {
+            title: "",
+            text: [],
+          },
+          aboutTitle: "",
+          aboutText: "",
+          client: "",
+          modeOfLife: "",
+          sector: "",
+          expertise: "",
+          year: "",
+          images: "",
+          videos: "",
+        })
       } else {
         toast.error(
           errors.name ||
