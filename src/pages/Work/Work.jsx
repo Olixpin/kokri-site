@@ -9,7 +9,7 @@ import { generateUniqueId } from "../../utils/logic"
 import IconClose from "../../assets/images/icon-close.svg"
 import { Btn } from "../../components/Button"
 import ArrowRight from "../../assets/images/image2.svg"
-import { East } from "@mui/icons-material"
+import { BsArrowRight } from "react-icons/bs"
 
 const Work = () => {
   const { workId } = useParams()
@@ -51,7 +51,7 @@ const Work = () => {
           backgroundImage: `url(${work?.images?.[0]})`,
         }}
       >
-        {getScrollY > 5 && (
+        {
           <>
             <div className="work-overlay">&nbsp;</div>
             <div className="work-content">
@@ -84,7 +84,7 @@ const Work = () => {
               </div>
             </div>
           </>
-        )}
+        }
       </section>
 
       <div className="" id="read-story"></div>
@@ -121,7 +121,7 @@ const Work = () => {
                       our other brands, get in touch.
                     </p>
 
-                    <Btn text="Get in touch" Icon={East} />
+                    <Btn text="Get in touch" Icon={BsArrowRight} />
                   </div>
                   <div class="section-link-content section-collapse-story">
                     <a
@@ -226,7 +226,7 @@ const Work = () => {
           <div className="">
             <Btn
               text="Get in touch"
-              Icon={East}
+              Icon={BsArrowRight}
               handleClick={(e) => {
                 e.preventDefault()
                 openModal()
@@ -239,7 +239,7 @@ const Work = () => {
           <h3>Explore more of our work</h3>
           <div
             className="explore-more-content"
-            onClick={() => window.scrollTo(100, 100)}
+            onClick={() => window.scrollTo(0, 0)}
           >
             {data.reduce((acc, item) => {
               if (item.slug !== work?.slug) {

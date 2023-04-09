@@ -1,0 +1,22 @@
+.avatar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.avatar-head {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.avatar-head p {
+  font-family: Helvetica Neue LT Light, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.avatar-text p {
+  font-family: Helvetica Neue LT Light, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}

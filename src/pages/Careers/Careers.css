@@ -1,0 +1,54 @@
+.career {
+  padding: 0 2rem;
+}
+
+.career-content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1800px;
+  margin: 0 auto;
+  margin-top: 150px;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 768px) {
+  .career {
+    padding: 0 12px;
+  }
+}
+
+.career-main {
+  padding-left: 8rem;
+  padding-right: 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.career-text {
+  font-family: Helvetica Neue LT Light, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 35px;
+  margin: 0;
+  max-width: 1080px;
+}
+
+.career-card-list:not(:last-child) {
+  border-bottom: 1px solid #eaeaea;
+}
+
+.career-text-h3 {
+  font-family: Helvetica Neue LT Light, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 27px;
+  line-height: 35px;
+  margin: 0;
+  max-width: 1080px;
+}
+
+.avatar-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 3rem;
+}

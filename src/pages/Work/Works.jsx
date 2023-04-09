@@ -1,12 +1,13 @@
-import {
-  ArrowDownward,
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-} from "@mui/icons-material"
 import React, { useState } from "react"
 import { Btn } from "../../components/Button"
 import { generateUniqueId } from "../../utils/logic"
 import { CardWork } from "../Work"
+import {
+  BsArrowDown,
+  BsArrowLeft,
+  BsChevronDown,
+  BsChevronUp,
+} from "react-icons/bs"
 import "./Works.css"
 
 const expertise = [
@@ -70,97 +71,96 @@ const articles = [
   {
     id: 1,
     name: "Seedlip",
-    url: "https://www.pearlfisher.com/work/seedlip/",
+    urlurl: "#/",
     background: "https://cdn.pearlfisher.com/2019/10/Seedlip_thumbnail.jpg",
   },
   {
     id: 2,
     name: "allPlant",
-    url: "https://www.pearlfisher.com/work/allplants/",
+    url: "#",
     background:
       "https://cdn.pearlfisher.com/2023/01/AP_Case-Study_Web-Pages-09-2-scaled.jpg",
   },
   {
     id: 3,
     name: "Her.9",
-    url: "https://www.pearlfisher.com/work/the-body-shop/",
+    url: "#-shop/",
     background: "https://cdn.pearlfisher.com/2021/09/thumb.jpg",
   },
   {
     id: 2,
     name: "allPlant",
-    url: "https://www.pearlfisher.com/work/allplants/",
+    url: "#",
     background:
       "https://cdn.pearlfisher.com/2023/01/AP_Case-Study_Web-Pages-09-2-scaled.jpg",
   },
   {
     id: 3,
     name: "Her.9",
-    url: "https://www.pearlfisher.com/work/the-body-shop/",
+    url: "#-shop/",
     background: "https://cdn.pearlfisher.com/2021/09/thumb.jpg",
   },
   {
     id: 1,
     name: "Seedlip",
-    url: "https://www.pearlfisher.com/work/seedlip/",
+    url: "#",
     background: "https://cdn.pearlfisher.com/2019/10/Seedlip_thumbnail.jpg",
   },
   {
     id: 1,
     name: "Seedlip",
-    url: "https://www.pearlfisher.com/work/seedlip/",
+    url: "#",
     background: "https://cdn.pearlfisher.com/2019/10/Seedlip_thumbnail.jpg",
   },
   {
     id: 2,
     name: "allPlant",
-    url: "https://www.pearlfisher.com/work/allplants/",
+    url: "#",
     background:
       "https://cdn.pearlfisher.com/2023/01/AP_Case-Study_Web-Pages-09-2-scaled.jpg",
   },
   {
     id: 3,
     name: "Her.9",
-    url: "https://www.pearlfisher.com/work/the-body-shop/",
+    url: "#-shop/",
     background: "https://cdn.pearlfisher.com/2021/09/thumb.jpg",
   },
   {
     id: 2,
     name: "allPlant",
-    url: "https://www.pearlfisher.com/work/allplants/",
+    url: "#",
     background:
       "https://cdn.pearlfisher.com/2023/01/AP_Case-Study_Web-Pages-09-2-scaled.jpg",
   },
   {
     id: 3,
     name: "Her.9",
-    url: "https://www.pearlfisher.com/work/the-body-shop/",
+    url: "#-shop/",
     background: "https://cdn.pearlfisher.com/2021/09/thumb.jpg",
   },
   {
     id: 1,
     name: "Seedlip",
-    url: "https://www.pearlfisher.com/work/seedlip/",
+    url: "#",
     background: "https://cdn.pearlfisher.com/2019/10/Seedlip_thumbnail.jpg",
   },
-
   {
     id: 2,
     name: "allPlant",
-    url: "https://www.pearlfisher.com/work/allplants/",
+    url: "#",
     background:
       "https://cdn.pearlfisher.com/2023/01/AP_Case-Study_Web-Pages-09-2-scaled.jpg",
   },
   {
     id: 3,
     name: "Her.9",
-    url: "https://www.pearlfisher.com/work/the-body-shop/",
+    url: "#-shop/",
     background: "https://cdn.pearlfisher.com/2021/09/thumb.jpg",
   },
   {
     id: 1,
     name: "Seedlip",
-    url: "https://www.pearlfisher.com/work/seedlip/",
+    url: "#",
     background: "https://cdn.pearlfisher.com/2019/10/Seedlip_thumbnail.jpg",
   },
 ]
@@ -192,7 +192,7 @@ const Works = () => {
               onClick={handleOpen}
             >
               Area of Expertise
-              <span>{open ? <KeyboardArrowUp /> : <KeyboardArrowDown />}</span>
+              <span>{open ? <BsChevronUp /> : <BsChevronDown />}</span>
             </a>{" "}
           </div>
         </div>
@@ -228,7 +228,7 @@ const Works = () => {
           ))}
         </section>
         <div className="works-button-container">
-          <Btn text="Load more" Icon={ArrowDownward} />
+          <Btn text="Load more" Icon={BsArrowDown} />
         </div>
       </div>
     </main>

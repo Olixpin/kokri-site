@@ -2,11 +2,11 @@ import React, { useEffect, useMemo, useState } from "react"
 import { Link } from "react-router-dom"
 import "./Gallery.css"
 import { Btn } from "../../components/Button"
-import { East } from "@mui/icons-material"
 import { getHomeData } from "../../utils/apis"
 import Her9 from "../../assets/images/work-images/her/Her9.png"
 import Skeleton from "react-loading-skeleton"
 import { useAppContext } from "../../context/context"
+import { BsArrowRight } from "react-icons/bs"
 
 const Gallery = () => {
   const { data, loading } = useAppContext()
@@ -173,166 +173,11 @@ const Gallery = () => {
               </div>
             </div>
           </div>
-          <div className="section-39 section-30-70">
-            <div className="section-row type-1">
-              <div className="col-1">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/sogood-sake/"
-                      className=""
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>SoGood Saké</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/sogood-sake/"
-                      title="SoGood Saké"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/love-ocean"
-                      className=""
-                      title="Love Ocean"
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>Love Ocean</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/love-ocean"
-                      title="Love Ocean"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-29 section-50-50">
-            <div className="section-row type-1">
-              <div className="col-1">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/bang-olufsen/"
-                      className=""
-                      title="Bang &amp; Olufsen"
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>Bang &amp; Olufsen</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/bang-olufsen/"
-                      title="Bang &amp; Olufsen"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/ocean-generation-brand-design-by-pearlfisher/"
-                      className=""
-                      title="Ocean Generation"
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>Ocean Generation</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/ocean-generation-brand-design-by-pearlfisher/"
-                      title="Ocean Generation"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="section-39 section-70-30">
-            <div className="section-row type-1">
-              <div className="col-1">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/hum-by-colgate/"
-                      className=""
-                      title="Hum by Colgate"
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>Hum by Colgate</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/hum-by-colgate/"
-                      title="Hum by Colgate"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-2">
-                <div className="col-item-overlay">
-                  <div className="col-item-background">
-                    <a
-                      href="https://www.pearlfisher.com/work/jo-loves/"
-                      className=""
-                      title="Jo Loves"
-                      style={{
-                        backgroundImage: `url(${Her9})`,
-                      }}
-                    ></a>
-                  </div>
-                  <div className="col-item-text">
-                    <h4></h4>
-                    <h5>Jo Loves</h5>
-                  </div>
-                  <div className="col-item-link">
-                    <a
-                      href="https://www.pearlfisher.com/work/jo-loves/"
-                      title="Jo Loves"
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </section>
 
         <div className="gallery-btn-container button-block-wrap">
           <Link to="/work">
-            <Btn text="More Work" Icon={East} />
+            <Btn text="More Work" Icon={BsArrowRight} />
           </Link>
         </div>
       </div>

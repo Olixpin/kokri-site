@@ -4,7 +4,7 @@ import "./CardWork.css"
 const CardWork = ({ id, name, url, background }) => {
   return (
     <article className="section-work-grid-box">
-      <h5>&nbsp;</h5>
+      {/* <h5>&nbsp;</h5> */}
       <div className="work-link">
         <span>{name}</span>
       </div>
