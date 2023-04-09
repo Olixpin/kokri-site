@@ -1,8 +1,8 @@
 .menus-container {
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
-  font-size: 30px;
+  gap: 1rem;
+  font-size: 35px;
 }
 
 .social-media-container,
